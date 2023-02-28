@@ -1,0 +1,31 @@
+concept_#genre# -> sc_node_not_relation;
+
+=> nrel_main_idtf:[#genre_main_idtf_ru#] (* <- lang_ru;; *);
+=> nrel_idtf:[#genre_idtf_en#] (* <- lang_en;; *);
+#=> nrel_idtf:[#genre_idtf_ru#] (* <- lang_ru;; *);# $optional$
+
+<- rrel_key_sc_element: 
+        ... 
+        (*
+            <- definition;;
+			=> nrel_main_idtf: [Опр. (#genre_ru#)] (* <- lang_ru;; *);
+							   [Def. (#genre_en#)] (* <- lang_en;; *);;
+			<=nrel_using_constants:
+			{
+				concept_genre;
+				#concept_#genre#;# $optional, if this genre is a subgenre$
+				concept_bibliography
+
+			};;
+			<= nrel_sc_text_translation: ...(*
+				-> rrel_example: "#HTML_ru#" (*<-lang_ru;; =>nrel_format:format_html;;*);;
+				-> rrel_example: "#HTML_en#" (*<-lang_en;; =>nrel_format:format_html;;*);;
+			*);;
+		*);
+ 
+
+ <= nrel_inclusion: concept_genre;;
+
+#=> nrel_inclusion: concept_#genre#;
+=> nrel_inclusion: concept_#genre#;
+=> nrel_inclusion: concept_#genre#;;# $optional, if subgenres exist$
